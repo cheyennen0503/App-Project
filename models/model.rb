@@ -9,4 +9,20 @@ pp JSON.parse(response)
 
 class Job
 attr_reader :job_word
+   
+    def initialize (job_word)
+        @job_word = job_word
+    end
+
+    def find_word
+        begin
+            fetcher =  :Fetcher.new
+            job_word = fetcher.search(@job_word)
+             @job_word = job_word.body.split('\n')
+        rescue
+            @job_word = ["Sorry, that word wasn't found!"]
+        end
+    end
+
+
 end
