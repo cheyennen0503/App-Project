@@ -6,3 +6,5 @@ url = ""
 uri = URI(url)
 response = Net::HTTP.get(uri)
 pp JSON.parse(response)
+
+Class 
