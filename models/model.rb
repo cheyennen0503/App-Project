@@ -11,10 +11,13 @@ class Job
 attr_reader :job_word
    
     def initialize (job_word)
+        response = Net::HTTP.get(uri)
+        result = JSON.parse(response)
+        result[type]
         @job_word = job_word
     end
 
-    def find_word
+    def find_word 
         begin
             fetcher =  :Fetcher.new
             job_word = fetcher.search(@job_word)
