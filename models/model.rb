@@ -5,7 +5,8 @@ require 'pp'
 url = "http://api.dataatwork.org/v1/spec/skills-api.json"
 uri = URI(url)
 response = Net::HTTP.get(uri)
-pp JSON.parse(response)
+result = JSON.parse(response)
+# pp JSON.parse(response)
 
 class Job_word
 attr_reader :job_word, :find_word
@@ -18,7 +19,7 @@ attr_reader :job_word, :find_word
         def get_info(find_word)
         begin
             @job_word.gsub(" ", "+")
-            url = 'http://api.dataatwork.org/v1/jobs' + "#{@job}" 
+            url = 'http://api.dataatwork.org/v1/spec/skills-api.json' + "#{@job_word}" 
             uri = URI.parse(URI.encode(url.strip))
             response = Net::HTTP.get(uri)
             result = JSON.parse(response)

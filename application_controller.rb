@@ -1,7 +1,6 @@
 require 'dotenv/load'
 require 'bundler'
 Bundler.require
-
 require_relative 'models/model.rb'
 
 class ApplicationController < Sinatra::Base
@@ -11,6 +10,7 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/result' do
+   
     erb :result
   end
 end
