@@ -7,7 +7,7 @@ uri = URI(url)
 response = Net::HTTP.get(uri)
 pp JSON.parse(response)
 
-class Job
+class Job_word
 attr_reader :job_word
    
     def initialize (job_word)
