@@ -11,8 +11,7 @@ class ApplicationController < Sinatra::Base
   end
   
   post '/result' do
-    
+    erb :result
+  @job_word = params[:job_word]
   end
-  
-  erb :result
 end

@@ -8,24 +8,28 @@ response = Net::HTTP.get(uri)
 pp JSON.parse(response)
 
 class Job_word
-attr_reader :job_word
+attr_reader :job_word, :find_word
    
     def initialize (job_word)
-        # response = Net::HTTP.get(uri)
-        # result = JSON.parse(response)
-        # result[type]
         @job_word = job_word
     end
 
     def find_word 
+        def get_info(find_word)
         begin
-            fetcher =  :Fetcher.new
-            job_word = fetcher.search(@job_word)
-             @job_word = job_word.body.split('\n')
+            @job_word.gsub(" ", "+")
+            url = 'http://api.dataatwork.org/v1/jobs' + "#{@name}" 
+            uri = URI.parse(URI.encode(url.strip))
+            response = Net::HTTP.get(uri)
+            result = JSON.parse(response)
+            puts "searching.."
+            result[type]
         rescue
-            @job_word = ["Sorry, that word wasn't found!"]
+            puts "not working!"
+            result = "Sorry, no #{find_word} is found"
         end
     end
+end
 
 
 end
