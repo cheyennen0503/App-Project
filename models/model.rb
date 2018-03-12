@@ -11,9 +11,9 @@ class Job
 attr_reader :job_word
    
     def initialize (job_word)
-        response = Net::HTTP.get(uri)
-        result = JSON.parse(response)
-        result[type]
+        # response = Net::HTTP.get(uri)
+        # result = JSON.parse(response)
+        # result[type]
         @job_word = job_word
     end
 
