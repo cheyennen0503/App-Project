@@ -18,7 +18,7 @@ attr_reader :job_word, :find_word
         def get_info(find_word)
         begin
             @job_word.gsub(" ", "+")
-            url = 'http://api.dataatwork.org/v1/jobs' + "#{@name}" 
+            url = 'http://api.dataatwork.org/v1/jobs' + "#{@job}" 
             uri = URI.parse(URI.encode(url.strip))
             response = Net::HTTP.get(uri)
             result = JSON.parse(response)
