@@ -14,7 +14,7 @@ class ApplicationController < Sinatra::Base
     
   @user_word = params[:job_word]
   @user_result = Job_word.new(@user_word)
-  @user_result.get_info
+  @user_result.find_job
 
     erb :result
   end

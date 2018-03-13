@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
 require 'pp'
 
-url = "http://api.dataatwork.org/v1/spec/skills-api.json"
+url = "http://api.dataatwork.org/v1/jobs/autocomplete?contains="
 uri = URI(url)
 response = Net::HTTP.get(uri)
 result = JSON.parse(response)
@@ -14,10 +14,10 @@ attr_reader :find_word
     def initialize (find_word)
         @find_word = find_word
     end
-        def job(find_word)
+    def find_job
         begin
             @find_word.gsub(" ", "+")
-            url = 'http://api.dataatwork.org/v1/spec/skills-api.json' + "#{@find_word}" 
+            url = 'http://api.dataatwork.org/v1/jobs/autocomplete?contains=' + "#{@find_word}" 
             uri = URI.parse(URI.encode(url.strip))
             response = Net::HTTP.get(uri)
             result = JSON.parse(response)
@@ -29,4 +29,5 @@ attr_reader :find_word
         end
     end
 end
-
+software = Job_word.new("software")
+software.find_job
