@@ -1,7 +1,6 @@
 require 'dotenv/load'
 require 'bundler'
 Bundler.require
-
 require_relative 'models/model.rb'
 
 class ApplicationController < Sinatra::Base
@@ -10,12 +9,12 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
   
-  # post '/result' do
-  #   @job_word = params[:job_word]
-  #   @job_word.get_info
-    
-    
-  # end
+
+  post '/result' do
+  @user_word = params[:job_word]
+  @user_result = Job_word.new(@user_word)
+  @user_result.get_info
   
-  erb :result
-end
+    erb :result
+  end
+  end
