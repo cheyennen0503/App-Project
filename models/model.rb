@@ -14,7 +14,7 @@ attr_reader :job_word, :find_word
         @job_word = job_word
         @find_word = ' '
     end
-        def find_job(find_word)
+        def job(find_word)
         begin
             @job_word.gsub(" ", "+")
             url = 'http://api.dataatwork.org/v1/spec/skills-api.json' + "#{@job_word}" 
