@@ -9,16 +9,15 @@ result = JSON.parse(response)
 # pp JSON.parse(response)
 
 class Job_word
-attr_reader :job_word, :find_word
+attr_reader :find_word
 
     def initialize (find_word)
         @find_word = find_word
-
     end
         def job(find_word)
         begin
             @find_word.gsub(" ", "+")
-            url = 'http://api.dataatwork.org/v1/spec/skills-api.json' + "#{@job_word}" 
+            url = 'http://api.dataatwork.org/v1/spec/skills-api.json' + "#{@find_word}" 
             uri = URI.parse(URI.encode(url.strip))
             response = Net::HTTP.get(uri)
             result = JSON.parse(response)
