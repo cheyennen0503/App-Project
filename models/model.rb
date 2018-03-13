@@ -13,7 +13,6 @@ attr_reader :job_word, :find_word
 
     def initialize (find_word)
         @find_word = find_word
-
     end
         def job(find_word)
         begin
