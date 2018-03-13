@@ -9,8 +9,13 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
   
+
   post '/result' do
     
+  @user_word = params[:job_word]
+  @user_result = Job_word.new(@user_word)
+  @user_result.get_info
+
     erb :result
   end
-end
+  end
