@@ -22,11 +22,15 @@ attr_reader :find_word
             uri = URI(url)
             response = Net::HTTP.get(uri)
             result = JSON.parse(response)
+            puts result.inspect 
+            result.each do |hash|
+                
+            end 
             puts "searching.."
             result[@find_word]
         rescue
             puts "not working!"
-            result = "Sorry, no #{@find_word} is found"
+            result = "Sorry, no #{@find_word} jobs can be found."
         end
     end
 end
