@@ -12,10 +12,13 @@ class ApplicationController < Sinatra::Base
 
   post '/result' do
     
-  @user_word = params[:job_word]
+  @user_word = params[:find_]
+  puts "user_word"
   @user_result = Job_word.new(@user_word)
-  @user_result.find_job
-
+  
+  @word = @user_result.find_job
+  puts @word
     erb :result
+    
   end
   end
