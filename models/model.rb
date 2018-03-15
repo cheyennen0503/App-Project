@@ -18,7 +18,7 @@ attr_reader :find_word
         begin
             @find_word.gsub(" ", "+")
             url = 'http://api.dataatwork.org/v1/jobs/autocomplete?contains=' + "#{@find_word}" 
-            # uri = URI.parse(URI.encode(url.strip))
+            #uri = URI.parse(URI.encode(url.strip))
             uri = URI(url)
             response = Net::HTTP.get(uri)
             result = JSON.parse(response)
@@ -34,5 +34,5 @@ attr_reader :find_word
         end
     end
 end
-# software = Job_word.new("software")
-# puts software.find_job
+ software = Job_word.new("software")
+ puts software.find_job
