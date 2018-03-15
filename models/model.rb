@@ -9,10 +9,11 @@ result = JSON.parse(response)
 # pp JSON.parse(response)
 
 class Job_word
-attr_reader :find_word
+attr_reader :find_word, :related_jobs
 
     def initialize (find_word)
         @find_word = find_word
+        @related_jobs = []
     end
     def find_job
         begin
@@ -23,8 +24,10 @@ attr_reader :find_word
             response = Net::HTTP.get(uri)
             result = JSON.parse(response)
             puts result.inspect 
-            result.each do |hash|
-                
+            
+            result.each do |job|
+               @related_jobs<< job["suggestion"]
+               result[@related_jobs]
             end 
             puts "searching.."
             result[@find_word]
@@ -34,5 +37,5 @@ attr_reader :find_word
         end
     end
 end
-# software = Job_word.new("software")
-# puts software.find_job
+software = Job_word.new("software")
+pp software.find_job
