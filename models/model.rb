@@ -34,7 +34,7 @@ attr_reader :find_word, :related_jobs
             result[@find_word]
         rescue
             puts "not working!"
-            result = "Sorry, no #{@find_word} jobs can be found."
+            result = "Sorry, no jobs can be found."
         end
     end
 end
