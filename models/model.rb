@@ -26,7 +26,7 @@ attr_reader :find_word, :related_jobs
             puts result.inspect 
             
             result.each do |job|
-               @related_jobs<< job["suggestion"]
+               @related_jobs << job["suggestion"]
                result[@related_jobs]
 
             end 
