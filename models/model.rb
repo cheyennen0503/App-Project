@@ -28,6 +28,7 @@ attr_reader :find_word, :related_jobs
             result.each do |job|
                @related_jobs << job["suggestion"]
                result[@related_jobs]
+
             end 
             puts "searching.."
             result[@find_word]
@@ -38,6 +39,8 @@ attr_reader :find_word, :related_jobs
     end
 end
 
+
 software = Job_word.new("software")
 pp software.find_job
+
 
