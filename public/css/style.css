@@ -1,1 +1,12 @@
+body {
+	  width: 100%;
+	  height: auto;
+  }
 
+  body {
+	  background-image: url(image1.jpg);
+	  background-position: center center;
+	  background-repeat: no-repeat;
+	  background-attachment: fixed;
+	  background-size: cover;
+    }
