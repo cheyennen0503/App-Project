@@ -23,7 +23,8 @@ attr_reader :find_word
             response = Net::HTTP.get(uri)
             result = JSON.parse(response)
             puts result.inspect 
-            result.each do |hash|
+            result.each do |suggestion|
+                
                 
             end 
             puts "searching.."
@@ -34,5 +35,5 @@ attr_reader :find_word
         end
     end
 end
-# software = Job_word.new("software")
-# puts software.find_job
+software = Job_word.new("software")
+puts software.find_job
