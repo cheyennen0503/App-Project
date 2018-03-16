@@ -9,23 +9,26 @@ result = JSON.parse(response)
 # pp JSON.parse(response)
 
 class Job_word
-attr_reader :find_word
+attr_reader :find_word, :related_jobs
 
     def initialize (find_word)
         @find_word = find_word
+        @related_jobs = []
     end
     def find_job
         begin
             @find_word.gsub(" ", "+")
             url = 'http://api.dataatwork.org/v1/jobs/autocomplete?contains=' + "#{@find_word}" 
-            # uri = URI.parse(URI.encode(url.strip))
+            #uri = URI.parse(URI.encode(url.strip))
             uri = URI(url)
             response = Net::HTTP.get(uri)
             result = JSON.parse(response)
             puts result.inspect 
-            result.each do |suggestion|
-                
-                
+            
+            result.each do |job|
+               @related_jobs<< job["suggestion"]
+               result[@related_jobs]
+
             end 
             puts "searching.."
             result[@find_word]
@@ -35,5 +38,9 @@ attr_reader :find_word
         end
     end
 end
+
+
 software = Job_word.new("software")
-puts software.find_job
+pp software.find_job
+
+

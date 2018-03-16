@@ -11,8 +11,7 @@ class ApplicationController < Sinatra::Base
   
 
   post '/result' do
-    
-  @user_word = params[:find_word]
+  @user_word = params[:find_job]
   puts @user_word
   @user_result = Job_word.new(@user_word)
   puts @user_result.inspect
