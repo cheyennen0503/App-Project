@@ -1,8 +1,8 @@
-html,
 body {
-	width: 100%;
-	height: auto;
-}
+	  width: 100%;
+	  height: auto;
+  }
+
 
 body {
 	background-image: url(image1.jpg);
@@ -10,4 +10,20 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
+}
+button{
+	font-family: 'fantasy', cursive;
+	color:#89cff0;
+}
+
+h1{
+    font-family: 'fantasy', cursive;
+    color:#89cff0;
+    font-size: 30;
+}
+
+h3{
+    font-family: 'fantasy', cursive;
+    color:#89cff0;
+    font-size: 20;
 }
